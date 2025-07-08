@@ -13,7 +13,7 @@ const typeSelect = document.getElementById('type');
 categorySelect.addEventListener('change', function () {
   const selected = this.value;
 
-  if (selected === 'food' || selected === 'transport' || selected === 'shopping') {
+  if (selected === 'food' || selected === 'transport' || selected === 'shopping'||selected==='Electricity Bills') {
     typeSelect.value = 'expense';
   }
 });
