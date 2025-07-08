@@ -5,6 +5,10 @@ const historyList = document.getElementById('history-list');
 const balanceDisplay = document.getElementById('balance');
 
 // Theme toggle
+document.getElementById("theme-toggle").onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
  // Grab the dropdowns
 const categorySelect = document.getElementById('category');
 const typeSelect = document.getElementById('type');
