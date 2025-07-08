@@ -9,23 +9,32 @@ const balanceDisplay = document.getElementById('balance');
 const categorySelect = document.getElementById('category');
 const typeSelect = document.getElementById('type');
 const incomeOption = typeSelect.querySelector('option[value="income"]');
+const expenseOption = typeSelect.querySelector('option[value="expense"]');
 
 categorySelect.addEventListener('change', function () {
   const selected = this.value;
+
+  if (!selected) return; // ignore placeholder
+
   if (
     selected === 'food' ||
     selected === 'transport' ||
     selected === 'shopping' ||
     selected === 'electricity'
   ) {
-    // Force type to Expense
+    // ✅ Force Expense for these
     typeSelect.value = 'expense';
-
-    // Disable Income option
     incomeOption.disabled = true;
-  } else {
-    // Re-enable Income option for other categories
+    expenseOption.disabled = false;
+  } else if (selected === 'Salary') {
+    // ✅ Force Income for Salary
+    typeSelect.value = 'income';
+    expenseOption.disabled = true;
     incomeOption.disabled = false;
+  } else {
+    // ✅ Others → enable both
+    incomeOption.disabled = false;
+    expenseOption.disabled = false;
   }
 });
 
