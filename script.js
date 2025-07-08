@@ -8,15 +8,27 @@ const balanceDisplay = document.getElementById('balance');
  // Grab the dropdowns
 const categorySelect = document.getElementById('category');
 const typeSelect = document.getElementById('type');
+const incomeOption = typeSelect.querySelector('option[value="income"]');
 
-// Listen for category change
 categorySelect.addEventListener('change', function () {
   const selected = this.value;
-
-  if (selected === 'food' || selected === 'transport' || selected === 'shopping'||selected==='Electricity Bills') {
+  if (
+    selected === 'food' ||
+    selected === 'transport' ||
+    selected === 'shopping' ||
+    selected === 'electricity'
+  ) {
+    // Force type to Expense
     typeSelect.value = 'expense';
+
+    // Disable Income option
+    incomeOption.disabled = true;
+  } else {
+    // Re-enable Income option for other categories
+    incomeOption.disabled = false;
   }
 });
+
 
 
 // Submit transaction
