@@ -72,3 +72,27 @@ button:hover {
 .expense {
   color: #dc2626;
 }
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark input,
+body.dark select,
+body.dark button {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+body.dark .container {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+body.dark li {
+  background-color: #2a2a2a;
+  padding: 6px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}

@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budget Manager</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <button id="theme-toggle">🌙 Toggle Dark Mode</button>
 
-  <div class="container">
-    <h1>Budget Manager</h1>
+    <div class="container">
+      <h1>Budget Manager</h1>
 
-    <div class="balance">
-      <h2>Balance: ₹<span id="balance">0</span></h2>
+      <div class="balance">
+        <h2>Balance: ₹<span id="balance">0</span></h2>
+      </div>
+      <div class="category-summary" id="category-summary">
+        <h3>Category Summary</h3>
+        <ul id="category-list"></ul>
+      </div>
+
+      <form id="transaction-form">
+        <input type="text" id="desc" placeholder="Description" required />
+        <input type="number" id="amount" placeholder="Amount" required />
+        
+        <select id="category">
+          <option value="food">Food</option>
+          <option value="transport">Transport</option>
+          <option value="shopping">Shopping</option>
+          <option value="stocks">Stocks</option>
+          <option value="Electricity Bills">Electricity bills</option>
+          <option value="Fintness">Ftiness</option>
+        </select>
+         <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+
+      <button id="undo-btn">Undo Last Transaction</button>
+
+      <h3>Transaction History</h3>
+      <ul id="history-list"></ul>
     </div>
-<div class="category-summary" id="category-summary">
-  <h3>Category Summary</h3>
-  <ul id="category-list"></ul>
-</div>
 
-    <form id="transaction-form">
-      <input type="text" id="desc" placeholder="Description" required>
-      <input type="number" id="amount" placeholder="Amount" required>
-      <select id="type">
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
-      </select>
-      <select id="category">
-        <option value="food">Food</option>
-        <option value="transport">Transport</option>
-        <option value="shopping">Shopping</option>
-        <option value="others">Others</option>
-      </select>
-      <button type="submit">Add</button>
-    </form>
-
-    <button id="undo-btn">Undo Last Transaction</button>
-
-    <h3>Transaction History</h3>
-    <ul id="history-list"></ul>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
