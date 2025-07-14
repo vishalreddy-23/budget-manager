@@ -96,3 +96,12 @@ body.dark li {
   margin-bottom: 5px;
   border-radius: 4px;
 }
+.chart-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#categoryChart {
+  max-width: 100%;
+  height: auto;
+}

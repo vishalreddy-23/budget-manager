@@ -172,3 +172,58 @@ function updateCategoryDisplay() {
     list.appendChild(li);
   }
 }
+// ✅ Setup Chart.js
+const ctx = document.getElementById('categoryChart').getContext('2d');
+
+let categoryChart = new Chart(ctx, {
+  type: 'pie', // You can change this to 'bar'
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'Category Totals',
+      data: [],
+      backgroundColor: [],
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+    },
+  },
+});
+
+// ✅ Update Chart
+function updateCategoryChart() {
+  const labels = [];
+  const data = [];
+  const colors = [];
+
+  for (let category in categoryMap) {
+    labels.push(category);
+    data.push(Math.abs(categoryMap[category]));
+    colors.push(`hsl(${Math.random() * 360}, 70%, 70%)`);
+  }
+
+  categoryChart.data.labels = labels;
+  categoryChart.data.datasets[0].data = data;
+  categoryChart.data.datasets[0].backgroundColor = colors;
+
+  categoryChart.update();
+}
+
+// ✅ Call inside category update
+function updateCategoryDisplay() {
+  const list = document.getElementById("category-list");
+  list.innerHTML = ""; // Clear old
+
+  for (let category in categoryMap) {
+    const li = document.createElement("li");
+    li.textContent = `${category}: ₹${categoryMap[category]}`;
+    list.appendChild(li);
+  }
+
+  updateCategoryChart(); // ⬅️ Add this to sync chart!
+}
